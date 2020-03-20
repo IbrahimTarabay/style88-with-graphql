@@ -22,7 +22,7 @@ import {store,persistor} from './redux/store';
 /*Provider gives us ability to use store and reducers*/
 /*provider is component which is parent of everything in our app*/
 const httpLink = createHttpLink({
-  uri: 'https://crwn-clothing.com'
+  uri: 'https://rocky-sierra-00708.herokuapp.com'
 });
 
 const cache = new InMemoryCache();
