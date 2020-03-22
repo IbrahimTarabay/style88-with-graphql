@@ -9,7 +9,7 @@ import {InMemoryCache} from 'apollo-cache-inmemory';
 it doesn't make double requests and it tries to be as optimal as 
 it can about making requests and then keeping the data*/
 import {ApolloClient,gql} from 'apollo-boost';
-/*gql is a function*/
+/*gql is a function to make graphql request*/
 
 import './index.css';
 

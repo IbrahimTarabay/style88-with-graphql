@@ -57,26 +57,3 @@ const mapStateToProps = (state,ownProps) => ({
   })
 
 export default connect(mapStateToProps)(CollectionPage);
-
-
-/*const CollectionPage = ({collection}) => {
-  const {title, items} = collection;
-
-  return(
-  <div className='collection-page'>
-    <h2 className='title'>{title}</h2>
-    <ReactSearchBox
-        placeholder={`search ${title}`}
-        data={items}
-        onChange={(event) => 
-          console.log(items.filter(item =>
-            item.name.toLowerCase().includes(event.toLowerCase())))}
-      />
-    <div className='items'>
-       {
-        items.map(item => <CollectionItem key={item.id} item={item} />)
-       }
-    </div>
-  </div>
-  )
-};*/
