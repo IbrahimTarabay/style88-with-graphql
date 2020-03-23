@@ -21,6 +21,9 @@ import {Provider} from 'react-redux';/*to use redux*/
 import {store,persistor} from './redux/store';
 /*Provider gives us ability to use store and reducers*/
 /*provider is component which is parent of everything in our app*/
+import {resolvers,typeDefs} from './graphql/resolvers';
+
+
 const httpLink = createHttpLink({
   uri: 'https://rocky-sierra-00708.herokuapp.com'
 });
@@ -29,7 +32,15 @@ const cache = new InMemoryCache();
 
 const client = new ApolloClient({
   link: httpLink,
-  cache
+  cache,
+  typeDefs,
+  resolvers
+});
+
+client.writeData({
+  data:{
+    cartHidden: true
+  }
 });
 
 client.query({
