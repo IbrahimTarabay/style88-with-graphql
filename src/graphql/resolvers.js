@@ -4,7 +4,7 @@ import {gql} from 'apollo-boost';
 mutation that might exist in the back-end*/
 export const typeDefs = gql`
  extend type Mutation{
-  toggleCartHidden: Boolean!
+  ToggleCartHidden: Boolean!
  }
 `
 /*@client mean we want to look for cartHidden in local cache or client*/

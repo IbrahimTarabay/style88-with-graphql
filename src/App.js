@@ -10,7 +10,7 @@ import ShopPage from './pages/shop/shop';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up';
 import CheckoutPage from './pages/checkout/checkout';
 
-import Header from './components/header/header';
+import {default as Header} from './components/header/header.container';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
