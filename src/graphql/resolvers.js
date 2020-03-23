@@ -1,6 +1,6 @@
 import {gql} from 'apollo-boost';
 
-import {addItemToCart} from './cart.utils';
+import {addItemToCart,getCartItemCount} from './cart.utils';
 /*extend mean that i want to extend the existing type of
 mutation that might exist in the back-end*/
 export const typeDefs = gql`
@@ -10,13 +10,19 @@ export const typeDefs = gql`
 
  extend type Mutation{
   ToggleCartHidden: Boolean!
-  AddItemToCart(item: Item!): [Item]
+  AddItemToCart(item: Item!): [Item]!
  }
-`
+`;
 /*@client mean we want to look for cartHidden in local cache or client*/
 const GET_CART_HIDDEN = gql`
  {
    cartHidden @client  
+ }
+`;
+
+const GET_ITEM_COUNT = gql`
+ {
+   itemCount @client
  }
 `;
 
@@ -52,6 +58,12 @@ export const resolvers = {
         query: GET_CART_ITEMS
       });
       const newCartItems = addItemToCart(cartItems,item);
+       
+       cache.writeQuery({
+         query: GET_ITEM_COUNT,
+         data: {itemCount: getCartItemCount(newCartItems)}
+       });
+      
 
        cache.writeQuery({
          query: GET_CART_ITEMS,

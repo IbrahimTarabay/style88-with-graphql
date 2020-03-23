@@ -5,6 +5,7 @@ import {ApolloProvider} from 'react-apollo';
 import {createHttpLink} from 'apollo-link-http';
 /*connect our client to our specific endpoint "/graphql"*/
 import {InMemoryCache} from 'apollo-cache-inmemory';
+/*import { persistCache } from 'apollo-cache-persist';*/
 /*Apollo uses to actually cache the data that it fetches so 
 it doesn't make double requests and it tries to be as optimal as 
 it can about making requests and then keeping the data*/
@@ -37,10 +38,16 @@ const client = new ApolloClient({
   resolvers
 });
 
+/*persistCache({
+  cache,
+  storage: window.localStorage,
+});*/
+
 client.writeData({
   data:{
     cartHidden: true,
-    cartItems: []
+    cartItems: [],
+    itemCount: 0
   }
 });
 

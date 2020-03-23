@@ -1,9 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
- 
-import { selectCartItemsCount } from '../../redux/cart/cart.selectors';
- 
+
 import { ReactComponent as ShoppingIcon } from '../../assets/shopping-bag.svg';
  /*This is a new special syntax when importing SVG in React.
  The ReactComponent import name is special and tells Create React App
@@ -17,8 +13,4 @@ const CartIcon = ({toggleCartHidden,itemCount}) =>(
   </div>
 );
 
-const mapStateToProps = createStructuredSelector({
-  itemCount: selectCartItemsCount
-})
-
-export default connect(mapStateToProps)(CartIcon);
+export default CartIcon;
